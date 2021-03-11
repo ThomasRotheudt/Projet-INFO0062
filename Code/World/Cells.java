@@ -1,6 +1,6 @@
-package Code.MainGame;
+package Code.Monde;
 
-public class Game {
+public class Cellule {
     public static void main(String[] args) {
 
     }
