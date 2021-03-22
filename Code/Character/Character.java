@@ -1,5 +1,5 @@
-package Code.Personnage;
+package Code.Character;
 
-public class Personnage {
+public class Character {
     
 }

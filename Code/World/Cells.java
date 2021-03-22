@@ -1,6 +1,6 @@
-package Code.Monde;
+package Code.World;
 
-public class Cellule {
+public class Cells {
     public static void main(String[] args) {
 
     }
