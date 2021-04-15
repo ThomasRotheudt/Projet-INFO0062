@@ -1,8 +1,8 @@
 package Code.World;
 
 /**
- * Door
+ * Box
  */
-public class Door {
+public class Box {
     
 }
