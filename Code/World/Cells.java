@@ -8,29 +8,31 @@ import Code.World.Object.Object;
  * Cells
  */
 public class Cells {
+
+    // ATTRIBUTS
+
     /** The doors of the cells */
-    protected Door frontDoor = null, leftDoor = null, rightDoor = null, backDoor = null;
-    /** The number of doors */
-    protected int nbrDoor;
+    public Door frontDoor = null, leftDoor = null, rightDoor = null, backDoor = null;
     /** The items in the cells */
     protected Vector <Object> items;
 
 
-    public Cells(Door frontDoor_, Door leftDoor_, Door rightDoor_, Door backDoor_) {
-        frontDoor = frontDoor_;
-        leftDoor = leftDoor_;
-        rightDoor = rightDoor_;
-        backDoor = backDoor_;
+    // METHOD
 
+    public Cells() {
+        frontDoor = null;
+        leftDoor = null;
+        rightDoor = null;
+        backDoor = null;
 
         items = new Vector<Object>();
     }
 
-    public Cells() {
-        frontDoor = new Door("front door");
-        leftDoor = new Door("left door");
-        rightDoor = new Door("right door");
-        backDoor = new Door("back door");
+    public Cells(Door frontDoor_, Door leftDoor_, Door backDoor_, Door rightDoor_) {
+        frontDoor = frontDoor_;
+        leftDoor = leftDoor_;
+        rightDoor = rightDoor_;
+        backDoor = backDoor_;
 
         items = new Vector<Object>();
     }
@@ -40,18 +42,16 @@ public class Cells {
 
         if(frontDoor != null)
             s += "one door in front of you";
-        else if(leftDoor != null)
+        if(leftDoor != null)
             s += ", one door to your left";
-        else if(rightDoor != null)
+        if(rightDoor != null)
             s += ", one door to your right";
-        else if(backDoor != null)
+        if(backDoor != null)
             s += ", one door behind you";
-        else
-            s += "nothing.";
+        if(frontDoor == null && leftDoor == null && backDoor == null && rightDoor == null)
+            s += "nothing";
         
-
+        s += ".";
         return s;
     }
-
-    
 }
