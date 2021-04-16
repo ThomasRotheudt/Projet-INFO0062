@@ -38,20 +38,19 @@ public class Cells {
     }
 
     public String toString(){
-        String s = "\nYou are in a cell, there is ";
+        String s = "\nYou are in a cell, there is:";
 
         if(frontDoor != null)
-            s += "one door in front of you";
+            s += "\none door in front of you";
         if(leftDoor != null)
-            s += ", one door to your left";
+            s += "\none door to your left";
         if(rightDoor != null)
-            s += ", one door to your right";
+            s += "\none door to your right";
         if(backDoor != null)
-            s += ", one door behind you";
+            s += "\none door behind you";
         if(frontDoor == null && leftDoor == null && backDoor == null && rightDoor == null)
-            s += "nothing";
-        
-        s += ".";
+            s += "\nnothing";
+    
         return s;
     }
 }

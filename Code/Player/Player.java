@@ -10,7 +10,7 @@ import Code.Game.Game;
 public class Player {
     public int x;
     public int y;
-    public Cells currentCell;
+    protected Cells currentCell;
 
 
     public Player(Cells newCell) {
@@ -19,12 +19,16 @@ public class Player {
         currentCell = newCell;
     }
 
+    public Cells getCurrentCell() {
+        return currentCell;
+    }
+
     public void move(String direction, Game game) {
 
         if(direction.equals("forward") || direction.equals("Forward")) {
             y++;
-            if(y > 9){
-                y = 9;
+            if(y > game.getColumns() - 1){
+                y = game.getColumns() - 1;
                 System.out.println("\nThere is no door in front of you");
             }
         }else if(direction.equals("backward") || direction.equals("Backward")){
@@ -40,8 +44,8 @@ public class Player {
     public void turn(String direction, Game game){
         if(direction.equals("left") || direction.equals("Left")) {
             x++;
-            if(x > 9){
-                x = 9;
+            if(x > game.getLines() - 1){
+                x = game.getLines() - 1;
                 System.out.println("\nThere is no door left to you");
             }
         }else if(direction.equals("right") || direction.equals("Right")){
