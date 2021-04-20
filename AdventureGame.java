@@ -1,12 +1,11 @@
-package Code;
 
+import game.Game;
 import java.util.Scanner;
-import Code.Game.Game;
-import Code.Player.Player;
-import Code.World.Cells;
+import player.Player;
+import world.Cells;
 
 
-public class main {
+public class AdventureGame {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);

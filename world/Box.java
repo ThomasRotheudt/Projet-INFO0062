@@ -1,4 +1,4 @@
-package Code.World;
+package world;
 
 /**
  * Box

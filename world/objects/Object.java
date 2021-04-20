@@ -1,4 +1,4 @@
-package Code.World.Object;
+package world.objects;
 
 /**
  * Object

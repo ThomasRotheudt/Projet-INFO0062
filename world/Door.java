@@ -1,6 +1,6 @@
-package Code.World;
+package world;
+import world.objects.Key;
 
-import Code.World.Object.Key;
 /**
  * Door
  */

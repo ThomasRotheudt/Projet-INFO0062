@@ -1,8 +1,9 @@
-package Code.World;
+package world;
 
 import java.util.Vector;
+import world.Door;
+import world.objects.Object;
 
-import Code.World.Object.Object;
 
 /**
  * Cells
@@ -39,6 +40,7 @@ public class Cells {
         items.add(newObject);
     }
 
+    @Override
     public String toString(){
         String s = "\nYou enter in a rooms of this dungeon, at first glance you see:";
 

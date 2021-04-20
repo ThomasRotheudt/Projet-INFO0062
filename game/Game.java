@@ -1,14 +1,16 @@
-package Code.Game;
+package game;
 
 import java.util.Vector;
+import player.Player;
+import world.Cells;
+import world.Door;
 
-import Code.Player.Player;
-import Code.World.Cells;
-import Code.World.Door;
+
+
 
 public class Game {
 
-    protected Vector<Vector<Cells>> gameTab;
+    protected Cells[][] gameTab;
     protected int columns, lines;
     
     /**
@@ -17,19 +19,12 @@ public class Game {
     public Game() {
         columns = 4; lines = 4;
 
-        gameTab = new Vector<Vector<Cells>>();
-        Vector <Cells> e;
-        Cells c;
-        Door d = new Door();
+        gameTab = new Cells[lines][columns];
 
-        for (int i = 0; i < columns; i++) {
-            e = new Vector<Cells>();
-            for (int j = 0; j < lines; j++) {
-                c = new Cells(d, null, d, null);
-                e.add(c);
-            }
-            gameTab.add(e);
-        }
+        for (int i = 0; i < lines; i++)
+            for (int j = 0; j < columns; j++)
+                gameTab[i][j] = new Cells();
+
     }
 
     /**
@@ -53,7 +48,7 @@ public class Game {
      * @return The cell whose the position is (X,Y)
      */
     public Cells getCells(int x, int y) {
-        return gameTab.get(x).get(y);
+        return gameTab[x][y];
     }
 
     /**

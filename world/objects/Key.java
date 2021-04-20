@@ -1,4 +1,4 @@
-package Code.World.Object;
+package world.objects;
 
 
 /**
@@ -7,6 +7,7 @@ package Code.World.Object;
 public class Key extends Object {
 
     protected String code;
+    protected double weight;
 
     public Key(String code_) {
         weight = 0.010;

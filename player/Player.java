@@ -1,9 +1,7 @@
-package Code.Player;
+package player;
 
-import Code.World.Cells;
-import Code.Game.Game;
-
-
+import game.Game;
+import world.Cells;
 /**
  * A class that manages the player
  */
@@ -68,7 +66,7 @@ public class Player {
             x++;
             if(x > game.getLines() - 1){
                 x = game.getLines() - 1;
-                System.out.println("\n!There is no door to the west of the room!");
+                System.out.println("\n!There is no door to the east of the room!");
             }
         } 
         
@@ -76,7 +74,7 @@ public class Player {
             x--;
             if(x < 0){
                 x = 0;
-                System.out.println("\n!There is no door to the east of the room!");
+                System.out.println("\n!There is no door to the west of the room!");
             }
         }
         currentCell = game.getCells(x, y);
