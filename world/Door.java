@@ -22,4 +22,7 @@ public class Door {
         keyDoor = key;
     }
     
+    public boolean getState(){
+        return isLocked;
+    }
 }

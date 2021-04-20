@@ -1,6 +1,7 @@
 package player;
 
 import game.Game;
+import world.Door;
 import world.Cells;
 /**
  * A class that manages the player
@@ -47,35 +48,56 @@ public class Player {
     public void move(String direction, Game game) {
 
         if(direction.equals("north") || direction.equals("North")) {
+            if(currentCell.getDoor("N") == null){
+                System.out.println("\nThere is no door here\n");
+                return;
+            }else if(currentCell.getDoor("N").getSate()){
+                System.out.println("\nThe door is locked\n");
+                return;
+            }
             y++;
             if(y > game.getColumns() - 1){
                 y = game.getColumns() - 1;
-                System.out.println("\n!There is no door to the north of the room!\n");
+                System.out.println("Victory!!!");
             }
+
         } 
         
         else if(direction.equals("south") || direction.equals("South")){
-            y--;
-            if(y < 0){
-                y = 0;
-                System.out.println("\n!There is no door to the south of the room!\n");
+            if(currentCell.getDoor("S") == null){
+                System.out.println("\nThere is no door here\n");
+                return;
+            }else if(currentCell.getDoor("S").getSate()){
+                System.out.println("\nThe door is locked\n");
+                return;
             }
+
+            y--;
         }
         
         else if(direction.equals("east") || direction.equals("East")) {
-            x++;
-            if(x > game.getLines() - 1){
-                x = game.getLines() - 1;
-                System.out.println("\n!There is no door to the east of the room!");
+            if(currentCell.getDoor("E") == null){
+                System.out.println("\nThere is no door here\n");
+                return;
+            }else if(currentCell.getDoor("E").getSate()){
+                System.out.println("\nThe door is locked\n");
+                return;
             }
+            x++;
+            
         } 
         
         else if(direction.equals("west") || direction.equals("West")){
-            x--;
-            if(x < 0){
-                x = 0;
-                System.out.println("\n!There is no door to the west of the room!");
+            if(currentCell.getDoor("W") == null){
+                System.out.println("\nThere is no door here\n");
+                return;
+            }else if(currentCell.getDoor("W").getSate()){
+                System.out.println("\nThe door is locked\n");
+                return;
             }
+
+            x--;
+            
         }
         currentCell = game.getCells(x, y);
     }

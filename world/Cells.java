@@ -12,48 +12,60 @@ public class Cells {
 
 
     /** The doors of the cells */
-    public Door frontDoor = null, leftDoor = null, rightDoor = null, backDoor = null;
+    public Door northDoor = null, westDoor = null, eastDoor = null, southDoor = null;
     /** The items in the cells */
     protected Vector <Object> items;
 
 
 
     public Cells() {
-        frontDoor = null;
-        leftDoor = null;
-        rightDoor = null;
-        backDoor = null;
+        northDoor = null;
+        westDoor = null;
+        eastDoor = null;
+        southDoor = null;
 
         items = new Vector<Object>();
     }
 
-    public Cells(Door frontDoor_, Door leftDoor_, Door backDoor_, Door rightDoor_) {
-        frontDoor = frontDoor_;
-        leftDoor = leftDoor_;
-        rightDoor = rightDoor_;
-        backDoor = backDoor_;
+    public void setDoor(Door newDoorN, Door newDoorW, Door newDoorS, Door newDoorE){
+        northDoor = newDoorN;
+        westDoor = newDoorW;
+        eastDoor = newDoorE;
+        southDoor = newDoorS;
+    }
 
-        items = new Vector<Object>();
+    public Door getDoor(String direction){
+        switch(direction){
+            case "N":
+                return northDoor;
+            case "E":
+                return eastDoor;
+            case "W":
+                return westDoor;
+            case "S":
+                return southDoor;
+            default: 
+                return null;
+        }
     }
 
     public void addObject(Object newObject){
         items.add(newObject);
     }
 
-    @Override
     public String toString(){
         String s = "\nYou enter in a rooms of this dungeon, at first glance you see:";
 
-        if(frontDoor != null)
+        if(northDoor != null)
             s += "\n\t- a door to the north of the room";
-        if(leftDoor != null)
+        if(westDoor != null)
             s += "\n\t- a door to the west of the room";
-        if(rightDoor != null)
+        if(eastDoor != null)
             s += "\n\t- a door to the east of the room";
-        if(backDoor != null)
+        if(southDoor != null)
             s += "\n\t- a door to the south of the room";
-        if(frontDoor == null && leftDoor == null && backDoor == null && rightDoor == null)
-            s += "\n\tnothing";
+        if(northDoor == null && westDoor == null && eastDoor == null && southDoor == null)
+            s += "\n\tnothing"; 
     
         return s;
     }
