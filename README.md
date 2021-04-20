@@ -1,3 +1,3 @@
 # Projet-INFO0062
 
-Première chose mais pas des moindres, Commencer le projet!
+You are an adventurer who has found a monster's lair
