@@ -9,7 +9,6 @@ import Code.World.Object.Object;
  */
 public class Cells {
 
-    // ----ATTRIBUTS----
 
     /** The doors of the cells */
     public Door frontDoor = null, leftDoor = null, rightDoor = null, backDoor = null;
@@ -17,7 +16,6 @@ public class Cells {
     protected Vector <Object> items;
 
 
-    // ----METHOD----
 
     public Cells() {
         frontDoor = null;
@@ -37,35 +35,19 @@ public class Cells {
         items = new Vector<Object>();
     }
 
-    public void setDoorFront(Door newDoor){
-        frontDoor = newDoor;
-    }
-
-    public void setDoorLeft(Door newDoor){
-        leftDoor = newDoor;
-    }
-
-    public void setDoorRight(Door newDoor){
-        rightDoor = newDoor;
-    }
-
-    public void setDoorBack(Door newDoor){
-        backDoor = newDoor;
-    }
-
     public void addObject(Object newObject){
         items.add(newObject);
     }
 
     public String toString(){
-        String s = "\nyou enter in a room of the dungeon, at first glance you see:";
+        String s = "\nYou enter in a rooms of this dungeon, at first glance you see:";
 
         if(frontDoor != null)
             s += "\n\t- a door to the north of the room";
         if(leftDoor != null)
-            s += "\n\t- a door to the east of the room";
-        if(rightDoor != null)
             s += "\n\t- a door to the west of the room";
+        if(rightDoor != null)
+            s += "\n\t- a door to the east of the room";
         if(backDoor != null)
             s += "\n\t- a door to the south of the room";
         if(frontDoor == null && leftDoor == null && backDoor == null && rightDoor == null)

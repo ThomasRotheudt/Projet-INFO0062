@@ -15,10 +15,10 @@ public class Player {
     /**
      * @param newCell The current cell of the player
      */
-    public Player(Cells newCell) {
-        x = 0;
+    public Player(Game game) {
+        x = game.getLines() / 2;
         y = 0;
-        currentCell = newCell;
+        currentCell = game.getCells(x, y);
     }
 
     /**
@@ -48,40 +48,37 @@ public class Player {
      */
     public void move(String direction, Game game) {
 
-        if(direction.equals("forward") || direction.equals("Forward")) {
+        if(direction.equals("north") || direction.equals("North")) {
             y++;
             if(y > game.getColumns() - 1){
                 y = game.getColumns() - 1;
-                System.out.println("\n!There is no door in front of you!");
+                System.out.println("\n!There is no door to the north of the room!\n");
             }
-        }else if(direction.equals("backward") || direction.equals("Backward")){
+        } 
+        
+        else if(direction.equals("south") || direction.equals("South")){
             y--;
             if(y < 0){
                 y = 0;
-                System.out.println("\n!There is no door behind you!");
+                System.out.println("\n!There is no door to the south of the room!\n");
             }
         }
-        currentCell = game.getCells(x, y);
-    }
-
-    /**
-     * @param direction The direction in which the player is going to turn
-     * @param game The game in which the player is going to move
-     */
-    public void turn(String direction, Game game){
-        if(direction.equals("right") || direction.equals("Right")) {
+        
+        else if(direction.equals("east") || direction.equals("East")) {
             x++;
             if(x > game.getLines() - 1){
                 x = game.getLines() - 1;
-                System.out.println("\n!There is no door left to you!");
+                System.out.println("\n!There is no door to the west of the room!");
             }
-        }else if(direction.equals("left") || direction.equals("Left")){
+        } 
+        
+        else if(direction.equals("west") || direction.equals("West")){
             x--;
             if(x < 0){
                 x = 0;
-                System.out.println("\n!There is no door right to you!");
+                System.out.println("\n!There is no door to the east of the room!");
             }
         }
-        currentCell = game.getCells(x, y);;
+        currentCell = game.getCells(x, y);
     }
 }
