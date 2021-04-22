@@ -26,28 +26,29 @@ public class Game {
                 gameTab[i][j] = new Cells();
 
         //init of first column
-        getCells(0, 0).setDoor(new Door(new Key("00", false)), null, null, new Door());
+        getCells(0, 0).setDoor(new Door(new Key("Serpent", false, "Serpent")), null, null, new Door());
         getCells(1, 0).setDoor(null, getCells(0, 0).getDoor("E"), null, new Door());
-        getCells(2, 0).setDoor(new Door(), getCells(1, 0).getDoor("E"), new Door(), new Door());
+        getCells(2, 0).setDoor(null, getCells(1, 0).getDoor("E"), new Door(), new Door());
         getCells(3, 0).setDoor(null, getCells(2, 0).getDoor("E"), null, null);
-
         //init of second column
         getCells(0, 1).setDoor(new Door(), null, getCells(0, 0).getDoor("N"), new Door());
         getCells(1, 1).setDoor(null, getCells(0, 1).getDoor("E"), null, null);
         getCells(2, 1).setDoor(new Door(), null, null, new Door());
         getCells(3, 1).setDoor(new Door(), getCells(2, 1).getDoor("E"), null, null);
-        
         //init third column
         getCells(0, 2).setDoor(null, null, getCells(0, 1).getDoor("N"), new Door());
         getCells(1, 2).setDoor(null, getCells(0, 2).getDoor("E"), null, new Door());
         getCells(2, 2).setDoor(new Door(), getCells(1, 2).getDoor("E"), getCells(2, 1).getDoor("N"), new Door());
         getCells(3, 2).setDoor(null, null, getCells(3, 1).getDoor("N"), null);
-
         //init fourth column
         getCells(0, 3).setDoor(null, null, null, new Door());
         getCells(1, 3).setDoor(new Door(), getCells(0, 3).getDoor("E"), null, new Door());
         getCells(2, 3).setDoor(null, getCells(1, 3).getDoor("E"), getCells(2, 2).getDoor("N"), new Door());
         getCells(3, 3).setDoor(null, getCells(2, 3).getDoor("E"), null, null);
+
+
+        //init keys of the game board
+        getCells(3, 0).addObject(getCells(0, 0).getDoor("N").getKey());
     }
 
     /**

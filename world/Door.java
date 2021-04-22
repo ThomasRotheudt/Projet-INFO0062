@@ -25,4 +25,8 @@ public class Door {
     public boolean getState(){
         return isLocked;
     }
+
+    public Key getKey(){
+        return keyDoor;
+    }
 }

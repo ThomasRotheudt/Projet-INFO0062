@@ -49,12 +49,21 @@ public class Cells {
         }
     }
 
+    public Vector<Object> getObject(){
+        return items;
+    }
+    
     public void addObject(Object newObject){
         items.add(newObject);
     }
 
+    public void removeObject(Object object){
+        if(items.contains(object))
+            items.remove(object);
+    }
+
     public String toString(){
-        String s = "\nYou enter in a rooms of this dungeon, at first glance you see:";
+        String s = "\n\n\nYou enter in a rooms of this dungeon, at first glance you see:";
 
         if(northDoor != null)
             s += "\n\t- a door to the north of the room";
@@ -66,6 +75,13 @@ public class Cells {
             s += "\n\t- a door to the south of the room";
         if(northDoor == null && westDoor == null && eastDoor == null && southDoor == null)
             s += "\n\tnothing"; 
+
+        s += "\n\nAfter a closer look you see:\n";
+        for (int i = 0; i < items.size(); i++) {
+            s += "\t-" + items.get(i);
+        }
+        if(items.size() <= 0)
+            s += "\t-nothing else";
     
         return s;
     }

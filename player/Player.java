@@ -1,8 +1,10 @@
 package player;
 
+import java.util.Vector;
+
 import game.Game;
-import world.Door;
 import world.Cells;
+import world.objects.Object;
 /**
  * A class that manages the player
  */
@@ -10,16 +12,17 @@ public class Player {
     protected int x;
     protected int y;
     protected Cells currentCell;
+    protected Vector<Object> inventory;
 
     /**
      * @param newCell The current cell of the player
      */
     public Player(Game game) {
-        x = game.getLines() / 2;
+        x = game.getLines() - 2;
         y = 0;
         currentCell = game.getCells(x, y);
+        inventory = new Vector<Object>();
     }
-
     /**
      * @return The current cell of the player
      */
@@ -51,7 +54,7 @@ public class Player {
             if(currentCell.getDoor("N") == null){
                 System.out.println("\nThere is no door here\n");
                 return;
-            }else if(currentCell.getDoor("N").getSate()){
+            }else if(currentCell.getDoor("N").getState()){
                 System.out.println("\nThe door is locked\n");
                 return;
             }
@@ -67,7 +70,7 @@ public class Player {
             if(currentCell.getDoor("S") == null){
                 System.out.println("\nThere is no door here\n");
                 return;
-            }else if(currentCell.getDoor("S").getSate()){
+            }else if(currentCell.getDoor("S").getState()){
                 System.out.println("\nThe door is locked\n");
                 return;
             }
@@ -79,7 +82,7 @@ public class Player {
             if(currentCell.getDoor("E") == null){
                 System.out.println("\nThere is no door here\n");
                 return;
-            }else if(currentCell.getDoor("E").getSate()){
+            }else if(currentCell.getDoor("E").getState()){
                 System.out.println("\nThe door is locked\n");
                 return;
             }
@@ -91,7 +94,7 @@ public class Player {
             if(currentCell.getDoor("W") == null){
                 System.out.println("\nThere is no door here\n");
                 return;
-            }else if(currentCell.getDoor("W").getSate()){
+            }else if(currentCell.getDoor("W").getState()){
                 System.out.println("\nThe door is locked\n");
                 return;
             }
@@ -101,4 +104,33 @@ public class Player {
         }
         currentCell = game.getCells(x, y);
     }
+
+    public void take(String object){
+        if(currentCell.getObject().size() == 0){
+            System.out.println("There are no objects in the room");
+            return;
+        }
+        for (int i = 0; i < currentCell.getObject().size(); i++) {
+            if(currentCell.getObject().get(i).getType().equals(object)){
+                inventory.add(currentCell.getObject().get(i));
+                currentCell.removeObject(currentCell.getObject().get(i));
+            }
+        }
+    }
+
+
+    public String toString(){
+
+        String s = "\nYou have ";
+        if(inventory.size() != 0){
+            for (int i = 0; i < inventory.size(); i++) 
+                s += inventory.get(i).getType();
+            
+            s += ".\n";
+        }else
+            s += "nothing.\n";
+        
+        return s;
+    }
 }
+
