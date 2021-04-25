@@ -4,4 +4,4 @@ clean:
 	clear
 
 archive:
-	tar -czvf Rotheudt_Thomas.tar.gz  AdventureGame.java game player world Makefile
+	tar -czvf Rotheudt_Thomas.tar.gz  AdventureGame.java game player world Makefile Readme.txt

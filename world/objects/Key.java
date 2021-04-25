@@ -5,32 +5,19 @@ package world.objects;
  */
 public class Key extends Object {
 
-    protected String code;
-
-    public Key(String code_, boolean hide, String name_){
-        weight = 0.010;
-        code = code_;
-        isHide = hide;
+    public Key(String name_){
         name = name_;
         type = "key";
     }
 
-    public String getCode(){
-        return code;
+    public Key(){
+        type = "key";
     }
 
-    public double getWeight(){
-        return weight;
-    }
-
-    @Override
-    public String getType(){
-        return super.getType();
-    }
-
-    @Override
     public String toString() {
-        String s = "a key with the inscription " + "\""+name+"\"";
-        return s;
+        if(name != null)
+            return "a key with the inscription " + "\""+name+"\"";
+        else
+            return super.toString();
     }
 }
